@@ -28,7 +28,10 @@ target-version = ["py311"]
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
-addopts = "-q --cov=core --cov-report=term-missing --cov-fail-under=80"
+addopts = "-q -m 'not integration' --cov=core --cov-report=term-missing --cov-fail-under=80"
+markers = [
+  "integration: marks tests as integration tests (deselect with '-m \"not integration\"')",
+]
 
 [tool.mypy]
 python_version = "3.11"
@@ -37,3 +40,6 @@ packages = ["core"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["core"]
+
+[project.scripts]
+quant = "cli.main:cli"
