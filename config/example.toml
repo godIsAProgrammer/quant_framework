@@ -1,0 +1,15 @@
+# quant-plugin-framework 示例配置
+
+environment = "dev"
+
+[engine]
+worker_count = 2
+queue_size = 5000
+
+[logging]
+level = "INFO"
+format = "%(asctime)s | %(name)s | %(levelname)s | %(message)s"
+
+[plugins]
+enabled = ["risk_guard", "daily_rebalance"]
+autoload = true
