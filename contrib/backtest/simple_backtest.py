@@ -191,8 +191,6 @@ class SimpleBacktestEngine(Plugin):
             trade["pnl"] = realized_pnl - commission
             self._trades.append(trade)
 
-        self._portfolio.settle_day(bar_date)
-
         value = self._portfolio.get_total_value(self._latest_prices)
         self._net_value_series.append({"date": bar_date, "value": value})
 

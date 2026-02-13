@@ -2,11 +2,20 @@
 
 from __future__ import annotations
 
-from typing import Any
+from typing import Any, TypedDict
 
 from core.context import Context
 from core.risk import RiskCheckResult
 from plugins.base import Plugin
+
+
+class OrderDict(TypedDict, total=False):
+    """TypedDict for order data."""
+
+    side: str
+    symbol: str
+    quantity: int
+    price: float
 
 
 class BasicRiskPlugin(Plugin):
